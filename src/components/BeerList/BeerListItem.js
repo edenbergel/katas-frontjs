@@ -1,12 +1,17 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { CartState } from "../../Context/Context";
+import { useOnScreen } from "../UseObserver";
 
 function BeerListItem({beer}) {
   const { state, dispatch } = CartState()
   let cartStorage = JSON.parse(localStorage.getItem("cart"))
 
+  const productRef = useRef(null);
+  const isOnScreen = useOnScreen(productRef);
+
   return (
-    <div className="col col-6 col-sm-4 col-md-4 col-lg-3 card rounded-0 px-0">
+    <div className={`col col-6 col-sm-4 col-md-4 col-lg-3 card rounded-0 px-0 ${isOnScreen && 'fade-in'}`} ref={productRef}>
       <Link to={ `beer/${beer.id}` } className="h-100 d-flex flex-column justify-content-between text-black">
         <div className="card-header d-flex align-items-center justify-content-between">
           <h5 className="fs-6 mb-0">{ beer.name } </h5>
