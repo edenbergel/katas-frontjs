@@ -1,9 +1,14 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { CartState } from "../../Context/Context";
+import { useOnScreen } from "../UseObserver";
 
 function Cart() {
   const { state, dispatch } = CartState()
   let cartStorage = JSON.parse(localStorage.getItem("cart"))
+
+  const cartProductRef = useRef(null);
+  const isOnScreen = useOnScreen(cartProductRef);
 
   return (
     <div className="main__container__small row">
@@ -12,7 +17,7 @@ function Cart() {
         cartStorage.length === 0 ?
 
             state.cart.map( item => 
-              <div key={item.id} className="col col-6 col-sm-4 col-md-4 col-lg-3 card rounded-0 px-0">
+              <div key={item.id} className={`col col-6 col-sm-4 col-md-4 col-lg-3 card rounded-0 px-0 ${isOnScreen && 'fade-in'}`} ref={cartProductRef}>
                 
                 <Link to={ `/beer/${item.id}` } className="h-100 d-flex flex-column justify-content-between text-black">
                   <div className="card-header d-flex align-items-center justify-content-between">
@@ -42,7 +47,7 @@ function Cart() {
           :
 
             cartStorage.map( (item, index) => 
-              <div key={item.id} className="col col-6 col-sm-4 col-md-4 col-lg-3 card rounded-0 px-0">
+              <div key={item.id} className={`col col-6 col-sm-4 col-md-4 col-lg-3 card rounded-0 px-0 ${isOnScreen && 'fade-in'}`} ref={cartProductRef}>
                 
                 <Link to={ `/beer/${item.id}` } className="h-100 d-flex flex-column justify-content-between text-black">
                   <div className="card-header d-flex align-items-center justify-content-between">
