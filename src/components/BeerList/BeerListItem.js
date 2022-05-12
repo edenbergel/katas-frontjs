@@ -13,7 +13,7 @@ function BeerListItem({beer}) {
           <p className="card-text">{ beer.volume.value } { beer.volume.unit }</p>
         </div>
 
-        { beer.image_url !== null ?
+        { beer.image_url !== undefined ?
             beer.image_url.indexOf("keg") !== -1 ?
               <img src="https://images.punkapi.com/v2/18.png" alt={ beer.tagline } className="m-auto w-25 h-75"/>
               :  <img src={ beer.image_url} alt={ beer.tagline } className="m-auto w-25 h-75"/>
