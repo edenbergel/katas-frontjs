@@ -27,7 +27,14 @@ function BeerDetails() {
         beerDetails ?
           <div key={beerDetails.id} className="row row-cols-1 row-cols-sm-1 row-cols-md-2 justify-content-center flex-wrap">
             <div className="col">
-              <img src={ beerDetails.image_url} alt={ beerDetails.tagline } style={{ width: 25 + '%'}} className="h-75" />
+
+            { beerDetails.image_url !== null ?
+                beerDetails.image_url.indexOf("keg") !== -1 ?
+                  <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25 h-75"/>
+                  :  <img src={ beerDetails.image_url} alt={ beerDetails.tagline } className="m-auto w-25 h-75"/>
+              :
+              <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25 h-75"/>
+            }
             </div>
 
             <div className={`col text-start ${(openTips || openIngredient) ? 'slideDown-animation': ''}`}>

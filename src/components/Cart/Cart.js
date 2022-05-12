@@ -20,7 +20,13 @@ function Cart() {
                     <p className="card-text">{ item.volume.value } { item.volume.unit }</p>
                   </div>
 
-                  <img src={ item.image_url} alt={ item.tagline } className="m-auto w-25 h-75"/>
+                  { item.image_url !== null ?
+                      item.image_url.indexOf("keg") !== -1 ?
+                        <img src="https://images.punkapi.com/v2/18.png" alt={ item.tagline } className="m-auto w-25 h-75"/>
+                        :  <img src={ item.image_url} alt={ item.tagline } className="m-auto w-25 h-75"/>
+                    :
+                    <img src="https://images.punkapi.com/v2/18.png" alt={ item.tagline } className="m-auto w-25 h-75"/>
+                  }
                 </Link>
 
                 <div className="mb-4">
@@ -44,7 +50,13 @@ function Cart() {
                     <p className="card-text">{ item.volume.value } { item.volume.unit }</p>
                   </div>
 
-                  <img src={ item.image_url} alt={ item.tagline } className="m-auto w-25 h-75"/>
+                  { item.image_url !== null ?
+                      item.image_url.indexOf("keg") !== -1 ?
+                        <img src="https://images.punkapi.com/v2/18.png" alt={ item.tagline } className="m-auto w-25 h-75"/>
+                        :  <img src={ item.image_url} alt={ item.tagline } className="m-auto w-25 h-75"/>
+                    :
+                    <img src="https://images.punkapi.com/v2/18.png" alt={ item.tagline } className="m-auto w-25 h-75"/>
+                  }
                 </Link>
 
                 <div className="mb-4">
