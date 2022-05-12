@@ -1,6 +1,6 @@
 const SearchBeer = ({handleChange}) => {
   return (
-    <div className="mx-auto border-bottom border-dark py-2">
+    <div className="search mx-auto border-bottom border-dark py-2 position-fixed start-0 end-0">
       <form className="d-flex position-relative w-50 m-auto">
           <input className="form-control rounded-0 border-0 bg-transparent" type="search" placeholder="Search" aria-label="Search" onChange={handleChange} />
           <span className="position-absolute top-50 end-0 translate-middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="bi bi-search" viewBox="0 0 16 16">

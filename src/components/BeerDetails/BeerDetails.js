@@ -22,7 +22,7 @@ function BeerDetails() {
   },[params.id])
 
   return (
-    <div className="BeerDetails my-5 w-75 m-auto">
+    <div className="main__container my-5 w-75 m-auto">
       {
         beerDetails ?
           <div key={beerDetails.id} className="row row-cols-1 row-cols-sm-1 row-cols-md-2 justify-content-center flex-wrap">

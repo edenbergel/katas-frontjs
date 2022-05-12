@@ -58,7 +58,7 @@ function BeerList() {
       {
         filteredPersons && filteredPersons.length ?
           <>
-            <div className="row pb-5">
+            <div className="main__container row pb-5">
               { 
                 filteredPersons.map(beer => 
                   <BeerListItem key={beer.id} beer={beer} />

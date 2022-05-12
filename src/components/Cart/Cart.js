@@ -6,7 +6,7 @@ function Cart() {
   let cartStorage = JSON.parse(localStorage.getItem("cart"))
 
   return (
-    <div className="row">
+    <div className="main__container__small row">
       { state.cart.length !== 0 || cartStorage === null || cartStorage.length !== 0 ?
 
         cartStorage.length === 0 ?

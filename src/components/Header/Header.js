@@ -10,7 +10,7 @@ function Header(to) {
 
   return (
     <>
-      <nav className="navbar border-bottom border-dark">
+      <nav className="navbar border-bottom border-dark fixed-top start-0 end-0">
         <div className="container-fluid justify-content-between ms-4 me-5">
           <h1 className="navbar-brand fw-bold fs-2">
             <Link to='/' className="text-dark">

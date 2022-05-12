@@ -2,8 +2,24 @@
   text-align: center;
 }
 
-.card, .navbar {
+.card, .navbar, .search {
   background-color: #f4f1ec;
+}
+
+.navbar, .search {
+  z-index: 1;
+}
+
+.search {
+  top: calc(73.5px);
+}
+
+.main__container__small {
+  padding-top: calc(73.5px);;
+}
+
+.main__container {
+  padding-top: calc(126.5px);
 }
 
 a, .nav-link, .nav-link:hover {
@@ -11,6 +27,7 @@ a, .nav-link, .nav-link:hover {
   color: black;
 }
 
+// animations
 .slideDown {
   max-height: 0;
   opacity: 0;
