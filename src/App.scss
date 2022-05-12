@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+.card, .navbar {
+  background-color: #f4f1ec;
+}
+
+a, .nav-link, .nav-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.slideDown {
+  max-height: 0;
+  opacity: 0;
+  transition: all .2s ease-out;
+}
+
+.slideDown-animation {
+  .slideDown {
+    max-height: 300px;
+    opacity: 1;
+    transition: all .2s ease-in;
+  }
+}
