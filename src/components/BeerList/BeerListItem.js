@@ -9,7 +9,7 @@ function BeerListItem({beer}) {
 
   const productRef = useRef(null);
   const isOnScreen = useOnScreen(productRef);
-
+//console.log(beer.image_url )
   return (
     <div className={`col col-6 col-sm-4 col-md-4 col-lg-3 card rounded-0 px-0 ${isOnScreen && 'fade-in'}`} ref={productRef}>
       <Link to={ `beer/${beer.id}` } className="h-100 d-flex flex-column justify-content-between text-black">
@@ -18,10 +18,11 @@ function BeerListItem({beer}) {
           <p className="card-text">{ beer.volume.value } { beer.volume.unit }</p>
         </div>
 
-        { beer.image_url !== undefined ?
+        { beer.image_url !== null ?
             beer.image_url.indexOf("keg") !== -1 ?
               <img src="https://images.punkapi.com/v2/18.png" alt={ beer.tagline } className="m-auto w-25 h-75"/>
-              :  <img src={ beer.image_url} alt={ beer.tagline } className="m-auto w-25 h-75"/>
+              :  
+              <img src={ beer.image_url} alt={ beer.tagline } className="m-auto w-25 h-75"/>
           :
           <img src="https://images.punkapi.com/v2/18.png" alt={ beer.tagline } className="m-auto w-25 h-75"/>
         }

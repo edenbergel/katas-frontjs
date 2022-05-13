@@ -33,8 +33,8 @@ function BeerDetails() {
             <div>
               <div className={`beer__img__container col position-relative p-4 rounded-circle ${appear ? 'slide-right' : ''}`}>
 
-              { beerDetails.image_url !== undefined ?
-                  beerDetails.image_url.indexOf("keg") !== -1 ?
+              { beerDetails.image_url !== null ?
+                  beerDetails.image_url !== undefined && beerDetails.image_url.indexOf("keg") !== -1 ?
                     <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25"/>
                     :  <img src={ beerDetails.image_url} alt={ beerDetails.tagline } className="m-auto w-25"/>
                 :
