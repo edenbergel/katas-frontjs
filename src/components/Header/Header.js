@@ -12,11 +12,7 @@ function Header(to) {
     <>
       <nav className="navbar border-bottom border-dark fixed-top start-0 end-0">
         <div className="container-fluid justify-content-between ms-4 me-5">
-          <h1 className="navbar-brand fw-bold fs-2">
-            <Link to='/' className="text-dark">
-              BEERS
-            </Link>
-          </h1>
+          <h1 className="navbar-brand fw-bold fs-2 text-dark">BEERS</h1>
           
           <ul className="nav justify-content-center">
             <li className={`nav-item ${match.pathname === '/' ? 'active' : ''}`}>
