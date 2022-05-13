@@ -30,15 +30,17 @@ function BeerDetails() {
       {
         beerDetails ?
           <div key={beerDetails.id} className="row row-cols-1 row-cols-sm-1 row-cols-md-2 justify-content-center flex-wrap">
-            <div className={`beer__img__container col position-relative p-4 rounded-circle ${appear ? 'slide-right' : ''}`}>
+            <div>
+              <div className={`beer__img__container col position-relative p-4 rounded-circle ${appear ? 'slide-right' : ''}`}>
 
-            { beerDetails.image_url !== undefined ?
-                beerDetails.image_url.indexOf("keg") !== -1 ?
-                  <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25"/>
-                  :  <img src={ beerDetails.image_url} alt={ beerDetails.tagline } className="m-auto w-25"/>
-              :
-              <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25"/>
-            }
+              { beerDetails.image_url !== undefined ?
+                  beerDetails.image_url.indexOf("keg") !== -1 ?
+                    <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25"/>
+                    :  <img src={ beerDetails.image_url} alt={ beerDetails.tagline } className="m-auto w-25"/>
+                :
+                <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25"/>
+              }
+              </div>
             </div>
 
             <div className={`col text-start position-relative ${(openTips || openIngredient) ? 'slideDown-animation': ''} ${appear ? 'slide-left' : ''}`}>

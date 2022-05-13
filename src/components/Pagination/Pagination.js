@@ -48,7 +48,7 @@ function Pagination({totalCount, pageSize, paginateParams, currentParamsArray}) 
               location.search !== '' ?
                 <li 
                   key={index} 
-                  className="page-item"
+                  className="page-item page__number"
                   onClick={changePage}
                 >
                   <button className={`btn ${(index + 1 === Number(currentParamsArray.page) || currentParamsArray === undefined) ? 'btn-dark' : 'btn-outline-dark'}`} >{index + 1}</button>
@@ -57,7 +57,7 @@ function Pagination({totalCount, pageSize, paginateParams, currentParamsArray}) 
               
                 <li 
                   key={index} 
-                  className="page-item"
+                  className="page-item page__number"
                   onClick={changePage}
                 >
                   <button className={`btn ${index === 0 ? 'btn-dark' : 'btn-outline-dark'}`}>{index + 1}</button>
