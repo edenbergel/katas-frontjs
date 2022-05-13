@@ -7,6 +7,7 @@ function BeerDetails() {
   const [beerDetails, setBeerDetails] = useState([])
   const [openIngredient, setOpenIngredient] = useState(false)
   const [openTips, setOpenTips] = useState(false)
+  const [appear, setAppear] = useState(false)
 
   const params = useParams();
 
@@ -18,26 +19,29 @@ function BeerDetails() {
     .then( res => {
       setBeerDetails(res.data[0])
     })
-    .catch( error => console.log(error))  
-  },[params.id])
+    .catch( error => console.log(error))
+
+    setAppear(true)
+  },[params.id, appear])
 
   return (
-    <div className="main__container my-5 w-75 m-auto">
+    <div className="main__container main__container--details position-relative my-5 m-auto">
+      <div className="position-absolute top-50 start-50 translate-middle w-75">
       {
         beerDetails ?
           <div key={beerDetails.id} className="row row-cols-1 row-cols-sm-1 row-cols-md-2 justify-content-center flex-wrap">
-            <div className="col">
+            <div className={`beer__img__container col position-relative p-4 rounded-circle ${appear ? 'slide-right' : ''}`}>
 
             { beerDetails.image_url !== undefined ?
                 beerDetails.image_url.indexOf("keg") !== -1 ?
-                  <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25 h-75"/>
-                  :  <img src={ beerDetails.image_url} alt={ beerDetails.tagline } className="m-auto w-25 h-75"/>
+                  <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25"/>
+                  :  <img src={ beerDetails.image_url} alt={ beerDetails.tagline } className="m-auto w-25"/>
               :
-              <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25 h-75"/>
+              <img src="https://images.punkapi.com/v2/18.png" alt={ beerDetails.tagline } className="m-auto w-25"/>
             }
             </div>
 
-            <div className={`col text-start ${(openTips || openIngredient) ? 'slideDown-animation': ''}`}>
+            <div className={`col text-start position-relative ${(openTips || openIngredient) ? 'slideDown-animation': ''} ${appear ? 'slide-left' : ''}`}>
               <h2>{ beerDetails.name }</h2>
               { beerDetails.volume && <p className="fst-italic text-danger"> { beerDetails.volume.value } { beerDetails.volume.unit }</p> }
 
@@ -85,7 +89,7 @@ function BeerDetails() {
                     {
                       openIngredient &&
                       <>
-                        <div className="border-top border-warning py-2">
+                        <div className="border-top py-2">
                           <p className="fst-italic">MALT</p>
                           <div className="d-flex flex-wrap">
                             {
@@ -96,7 +100,7 @@ function BeerDetails() {
                           </div>
                         </div>
 
-                        <div className="border-top border-warning py-2">
+                        <div className="border-top py-2">
                           <p className="fst-italic">HOPS</p>
                           <div className="d-flex flex-wrap">
                             {
@@ -107,7 +111,7 @@ function BeerDetails() {
                           </div>
                         </div>
 
-                        <div className="border-top border-warning py-2">
+                        <div className="border-top py-2">
                           <p className="fst-italic">YEAST</p>
                           <span className="fw-lighter">{beerDetails.ingredients.yeast}</span>
                         </div>
@@ -131,7 +135,7 @@ function BeerDetails() {
 
         : <h5 className="mt-5">Loading...</h5>
       }
-     
+     </div>
     </div>
   );
 }
